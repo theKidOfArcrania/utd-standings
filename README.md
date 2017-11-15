@@ -16,5 +16,6 @@ Then run the command:
 python standings.py
 ```
 
-After starting the python script, just type in a list of student names delimited
-by spaces.
+After starting the python script, first type in which search query to search for
+(name, email, or net-id), and then type in a list of student names delimited
+by commas.
