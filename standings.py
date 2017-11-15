@@ -2,9 +2,10 @@ from lxml import html
 from urllib import urlencode
 import requests,re,sys
 
-QUERY_TYPES = [{'type': 'displayname', 'name': 'Display Name'}, 
-        {'type': 'email', 'name': 'Email'},
-        {'type': 'email', 'name': 'Net-ID', 'convert': lambda x: x + '@utdallas.edu'}]
+QUERY_TYPES = [{'type': 'displayname', 'name': 'Display Name', 'short': 'name'}, 
+        {'type': 'email', 'name': 'Email', 'short': 'email'},
+        {'type': 'email', 'name': 'Net-ID', 'convert': lambda x: x + \
+            '@utdallas.edu', 'short': 'net-ID'}]
 
 
 def getStandings(name, dirType):
@@ -39,7 +40,8 @@ while num == -1:
         print(error)
 
 
-sys.stdout.write('Input names (separated by commas): ')
+sys.stdout.write('Input ' + QUERY_TYPES[num]['short'] + \
+        's (separated by commas): ')
 
 result = []
 for n in re.split(r'\s*,\s*', raw_input()):
